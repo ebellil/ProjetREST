@@ -50,7 +50,7 @@ public class CommandeClientController {
 	@RequestMapping(value="/commandes", method = RequestMethod.POST,
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> enregistrer(@RequestBody CommandeClient newCommande) {
-		CommandeClient commande = commandeClientRepository.save(newCommande) ;
+		CommandeClient commande = commandeClientRepository.save(newCommande);
 		
 		if(commande == null ) 
 			return ResponseEntity.noContent().build() ;
@@ -77,16 +77,16 @@ public class CommandeClientController {
 	@RequestMapping(value="/commandes/update/{id}", method = RequestMethod.PUT,
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CommandeClient> update(@RequestBody CommandeClient newCommande, @PathVariable long id ){
-		CommandeClient commande = commandeClientRepository.findById(id) ;
+		//CommandeClient commande = commandeClientRepository.findById(id) ;
 		
-		if(commande != null ) {
-			commande.setIdCommande(newCommande.getIdCommande());
-			commande.setCodeCommande(newCommande.getCodeCommande());
-			commande.setDateCommande(newCommande.getDateCommande());
-			commande.setClient(newCommande.getClient());
-			commande.setProduits(newCommande.getProduits());
+		if(getCommandeByID(id) != null ) {
+			getCommandeByID(id).setIdCommande(newCommande.getIdCommande());
+			getCommandeByID(id).setCodeCommande(newCommande.getCodeCommande());
+			getCommandeByID(id).setDateCommande(newCommande.getDateCommande());
+			getCommandeByID(id).setClient(newCommande.getClient());
+			getCommandeByID(id).setProduits(newCommande.getProduits());
 			
-			commandeClientRepository.save(commande) ;
+			commandeClientRepository.save(getCommandeByID(id)) ;
 			
 			return new ResponseEntity<>(HttpStatus.OK) ;
 		}
@@ -97,10 +97,24 @@ public class CommandeClientController {
 				.buildAndExpand(newCommande.getIdCommande())
 				.toUri();
 		
-		return ResponseEntity.created(location).build() ;
-		
+		return ResponseEntity.created(location).build();
 	}
-	
+
+	@ApiOperation("Prix total de la commande")
+	@RequestMapping(value="/commandes/{id}/prixTotal", method = RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public Double prixTotal(@PathVariable long id ){
+
+		double prix = 0;
+		for(int j = 0; j < getCommandeByID(id).getProduits().size(); j ++){
+			prix = prix + getCommandeByID(id).getProduits().get(j).getPrix();
+		}
+		return prix;
+	}
+
+	private CommandeClient getCommandeByID(long id){
+		return commandeClientRepository.findById(id);
+	}
 	
  
 }

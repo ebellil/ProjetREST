@@ -98,7 +98,7 @@ public class ProduitController {
 			return produits ;	
 									
 	}
-	
+
 	@ApiOperation("Affiche les produits les plus chèr de la limite")
 	@RequestMapping(value="/produits/prix/{prixLimite}", method = RequestMethod.GET)
 	public List<Produit> getAllPrixSup(@PathVariable double prixLimite){
@@ -106,7 +106,7 @@ public class ProduitController {
 		 return produitRepository.findByPrixGreaterThan(prixLimite) ;
 	}
 	
-	
+
 	
 	
 }

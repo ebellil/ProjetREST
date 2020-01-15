@@ -1,0 +1,13 @@
+<div class="col-md-8">
+  <br>
+  <table class="col-md-6">
+    <tr *ngFor="let produit of produits | paginate: { itemsPerPage: 10, currentPage: p }">
+      <td>
+        {{produit.designation}}
+        {{produit.prix}}
+        {{produit.quantite}}
+      </td>
+    </tr>
+  </table>
+  <pagination-controls responsive="true" (pageChange)="p = $event"></pagination-controls>
+</div>
