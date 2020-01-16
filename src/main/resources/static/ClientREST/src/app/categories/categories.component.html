@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-md-12 col-12">
+    <div class="col-md-2">
+      <button class="btn btn-warning "
+              type="button"
+              (click)="createCategorie()"
+      >Ajouter une catégorie</button>
+    </div>
+    <br>
+    <div class="col-md-10 col-sm-10 col-10 list-group list-group-flush">
+        <a *ngFor="let categorie of categories | paginate: { itemsPerPage: 10, currentPage: p }" class="list-group-item list-group-item-action">
+          <input [(ngModel)]="categorie.nomCategorie"  type="text" class="input-label col-md-6"/>
+          <button class="btn btn-primary col-md-2" (click)="updateCategorie(categorie)">Update</button>
+          <button class="btn btn-warning col-md-2" (click)="deleteCategorie(categorie)">Remove</button>
+        </a>
+      <br>
+      <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+    </div>
+  </div>
+</div>
+

@@ -1,13 +1,29 @@
-<div class="col-md-8">
-  <br>
-  <table class="col-md-6">
-    <tr *ngFor="let produit of produits | paginate: { itemsPerPage: 10, currentPage: p }">
-      <td>
-        {{produit.designation}}
-        {{produit.prix}}
-        {{produit.quantite}}
-      </td>
-    </tr>
-  </table>
-  <pagination-controls responsive="true" (pageChange)="p = $event"></pagination-controls>
+<div class="container">
+  <div class="col-md-12 col-12">
+    <div class="col-md-2">
+      <button class="btn btn-warning "
+              type="button"
+              (click)="createProduit()"
+      >Ajouter produit</button>
+    </div>
+    <br>
+    <div class="col-md-10 col-sm-10 col-10">
+      <table class="col-md-10">
+        <tr *ngFor="let produit of produits | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td class="row-md-6">
+            {{produit.designation}}
+            <br>
+            Qte : {{produit.quantite}}
+          </td>
+          <td class="row-md-6">{{produit.prix}}€</td>
+          <br>
+          <button class="btn btn-primary">Update</button>
+          <button class="btn btn-warning">Remove</button>
+        </tr>
+      </table>
+      <br>
+      <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+    </div>
+  </div>
 </div>
+

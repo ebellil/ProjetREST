@@ -29,4 +29,28 @@ export class ProduitsComponent implements OnInit {
     );
   }
 
+  getProduitById(id){
+
+  }
+
+  createProduit(){
+    let newProduit:Produits = {
+      idProduit: 199,
+      designation:'string',
+      prix:1000,
+      quantite:1050,
+      photo:'string'
+    };
+
+    this.apiService.postProduit(newProduit).subscribe(
+      res=>{
+        if(res != null){
+          newProduit.idProduit = res.idProduit;
+        }
+        this.produits.push(newProduit);
+      },
+      err=>{alert("error add produit");
+        console.log(newProduit);}
+    );
+  }
 }
