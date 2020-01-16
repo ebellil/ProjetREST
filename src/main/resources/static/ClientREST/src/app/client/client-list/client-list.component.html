@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Clients</h2>
+  </div>
+  <div>
+    <button (click)="addClient()" class="btn btn-success">Ajouter Client</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of client | async | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{c.nom}}</td>
+        <td>{{c.prenom}}</td>
+        <td>
+          <button (click)="deleteClient(c.idClient)" class="btn btn-danger">Delete</button>
+          <button (click)="updateClient(c.idClient)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+  </div>
+</div>

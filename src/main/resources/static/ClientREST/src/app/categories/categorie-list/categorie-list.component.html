@@ -1,1 +1,27 @@
-<p>categorie-list works!</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Categorie</h2>
+  </div>
+  <div>
+    <button (click)="addCategorie()" class="btn btn-success">Ajouter categorie</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of categorie | async | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{c.nomCategorie}}</td>
+        <td>
+          <button (click)="deleteCategorie(c.idCategorie)" class="btn btn-danger">Delete</button>
+          <button (click)="updateCategorie(c.idCategorie)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+  </div>
+</div>

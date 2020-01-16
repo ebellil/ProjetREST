@@ -1,0 +1,22 @@
+<h3>Create Categorie</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Nom categorie</label>
+      <input type="text" class="form-control" required [(ngModel)]="categorie.nomCategorie" name="nomCategorie">
+    </div>
+
+    <div class="form-group">
+      <label>Code Categorie</label>
+      <input type="text" class="form-control" required [(ngModel)]="categorie.codeCategorie" name="codeCategorie">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

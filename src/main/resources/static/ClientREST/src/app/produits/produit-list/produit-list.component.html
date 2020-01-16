@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Produit</h2>
+  </div>
+  <div>
+    <button (click)="addProduit()" class="btn btn-success">Ajouter produit</button>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let prod of produit | async | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{prod.designation}}</td>
+        <td>
+          <button (click)="deleteProduit(prod.idProduit)" class="btn btn-danger">Delete</button>
+          <button (click)="updateProduit(prod.idProduit)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" responsive="true"></pagination-controls>
+  </div>
+</div>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Categorie} from "../model/categorie";
+import {Router} from "@angular/router";
+import {CategorieService} from "../categorieService/categorie.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-categorie-list',
@@ -6,10 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categorie-list.component.scss']
 })
 export class CategorieListComponent implements OnInit {
-
-  constructor() { }
+  categorie: Observable<Categorie[]>;
+  p: number = 1;
+  constructor(private categorieService:CategorieService, private router:Router) { }
 
   ngOnInit() {
+    this.reloadData();
   }
 
+  reloadData() {
+    this.categorie = this.categorieService.getCategorieList();
+  }
+
+  deleteCategorie(id: number) {
+    this.categorieService.deleteCategorie(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+  updateCategorie(id: number) {
+    this.router.navigate(['categorie/update', id]);
+  }
+
+  addCategorie() {
+    this.router.navigate(['categorie/add']);
+  }
 }

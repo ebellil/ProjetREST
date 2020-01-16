@@ -1,4 +1,4 @@
-export interface Produits{
+export class Produit{
   idProduit:number;
   designation:string;
   prix:number;
