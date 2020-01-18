@@ -1,54 +1,64 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //CATEGORIE
-import {CategorieListComponent} from "./categories/categorie-list/categorie-list.component";
-import {UpdateCategorieComponent} from "./categories/update-categorie/update-categorie.component";
-import {CreateCategorieComponent} from "./categories/create-categorie/create-categorie.component";
+import {CategorieListComponent} from "./admin/categories/categorie-list/categorie-list.component";
+import {UpdateCategorieComponent} from "./admin/categories/update-categorie/update-categorie.component";
+import {CreateCategorieComponent} from "./admin/categories/create-categorie/create-categorie.component";
 //PRODUIT
-import {ProduitListComponent} from "./produits/produit-list/produit-list.component";
-import {UpdateProduitComponent} from "./produits/update-produit/update-produit.component";
-import {CreateProduitComponent} from "./produits/create-produit/create-produit.component";
-import {ClientListComponent} from "./client/client-list/client-list.component";
-import {UpdateClientComponent} from "./client/update-client/update-client.component";
-import {CreateClientComponent} from "./client/create-client/create-client.component";
+import {ProduitListComponent} from "./admin/produits/produit-list/produit-list.component";
+import {UpdateProduitComponent} from "./admin/produits/update-produit/update-produit.component";
+import {CreateProduitComponent} from "./admin/produits/create-produit/create-produit.component";
+import {ClientListComponent} from "./admin/client/client-list/client-list.component";
+import {UpdateClientComponent} from "./admin/client/update-client/update-client.component";
+import {CreateClientComponent} from "./admin/client/create-client/create-client.component";
+import {ProduitsComponent} from "./client/produits/produits.component";
+import {ProduitDetailsComponent} from "./client/produits/produit-details/produit-details.component";
 
 
 const routes: Routes = [
   {
-    path:'categorie',
+    path:'admin/categorie',
     component:CategorieListComponent
   },
   {
-    path:'categorie/update/:id',
+    path:'admin/categorie/update/:id',
     component:UpdateCategorieComponent
   },
   {
-    path:'categorie/add',
+    path:'admin/categorie/add',
     component:CreateCategorieComponent
   },
   {
-    path:'produit',
+    path:'admin/produit',
     component:ProduitListComponent
   },
   {
-    path:'produit/update/:id',
+    path:'admin/produit/update/:id',
     component:UpdateProduitComponent
   },
   {
-    path:'produit/add',
+    path:'admin/produit/add',
     component:CreateProduitComponent
   },
   {
-    path:'client',
+    path:'admin/client',
     component:ClientListComponent
   },
   {
-    path:'client/update/:id',
+    path:'admin/client/update/:id',
     component:UpdateClientComponent
   },
   {
-    path:'client/add',
+    path:'admin/client/add',
     component:CreateClientComponent
+  },
+  {
+    path:'client/produit',
+    component:ProduitsComponent
+  },
+  {
+    path:'client/produit/:id',
+    component:ProduitDetailsComponent
   }
 ];
 
