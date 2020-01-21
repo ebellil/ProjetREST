@@ -33,10 +33,10 @@ export class CategorieListComponent implements OnInit {
   }
 
   updateCategorie(id: number) {
-    this.router.navigate(['categorie/update', id]);
+    this.router.navigate(['admin/categorie/update', id]);
   }
 
   addCategorie() {
-    this.router.navigate(['categorie/add']);
+    this.router.navigate(['admin/categorie/add']);
   }
 }

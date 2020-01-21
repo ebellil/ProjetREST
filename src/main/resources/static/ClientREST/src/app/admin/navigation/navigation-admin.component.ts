@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navigationAdmin',
-  templateUrl: './navigationAdmin.component.html',
-  styleUrls: ['./navigationAdmin.component.scss']
+  selector: 'app-navigation-admin',
+  templateUrl: './navigation-admin.component.html',
+  styleUrls: ['./navigation-admin.component.scss']
 })
 export class NavigationAdminComponent implements OnInit {
 

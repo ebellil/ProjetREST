@@ -34,10 +34,10 @@ export class ProduitListComponent implements OnInit {
   }
 
   updateProduit(id: number) {
-    this.router.navigate(['produit/update', id]);
+    this.router.navigate(['admin/produit/update', id]);
   }
 
   addProduit() {
-    this.router.navigate(['produit/add']);
+    this.router.navigate(['admin/produit/add']);
   }
 }

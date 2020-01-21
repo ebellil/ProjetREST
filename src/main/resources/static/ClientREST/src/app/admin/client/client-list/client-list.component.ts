@@ -34,10 +34,10 @@ export class ClientListComponent implements OnInit {
   }
 
   updateClient(id: number) {
-    this.router.navigate(['client/update', id]);
+    this.router.navigate(['admin/client/update', id]);
   }
 
   addClient() {
-    this.router.navigate(['client/add']);
+    this.router.navigate(['admin/client/add']);
   }
 }

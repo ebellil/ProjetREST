@@ -35,7 +35,7 @@ export class CreateCategorieComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/categorie']);
+    this.router.navigate(['/admin/categorie']);
   }
 
 }

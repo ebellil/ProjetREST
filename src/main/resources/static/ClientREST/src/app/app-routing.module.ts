@@ -13,52 +13,87 @@ import {UpdateClientComponent} from "./admin/client/update-client/update-client.
 import {CreateClientComponent} from "./admin/client/create-client/create-client.component";
 import {ProduitsComponent} from "./client/produits/produits.component";
 import {ProduitDetailsComponent} from "./client/produits/produit-details/produit-details.component";
+import {HomeAdminComponent} from "./admin/home-admin/home-admin.component";
 
 
 const routes: Routes = [
   {
-    path:'admin/categorie',
-    component:CategorieListComponent
+    path: 'admin',
+    children: [
+      {
+        path: '',
+        component: HomeAdminComponent
+      },
+      {
+        path: 'produit',
+        children:[
+          {
+            path: '',
+            component: ProduitListComponent
+          },
+          {
+            path: 'update/:id',
+            component:UpdateProduitComponent
+          },
+          {
+            path: 'add',
+            component:CreateProduitComponent
+          }
+        ]
+      },
+      {
+        path: 'categorie',
+        children: [
+          {
+            path: '',
+            component: CategorieListComponent
+          },
+          {
+            path: 'add',
+            component: CreateCategorieComponent
+          },
+          {
+            path:'update/:id',
+            component:UpdateCategorieComponent
+          }
+        ]
+      },
+      {
+        path: 'client',
+        children: [
+          {
+            path: '',
+            component: ClientListComponent
+          },
+          {
+            path:'update/:id',
+            component:UpdateClientComponent
+          },
+          {
+            path:'add',
+            component:CreateClientComponent
+          }
+        ]
+      }
+    ]
   },
   {
-    path:'admin/categorie/update/:id',
-    component:UpdateCategorieComponent
-  },
-  {
-    path:'admin/categorie/add',
-    component:CreateCategorieComponent
-  },
-  {
-    path:'admin/produit',
-    component:ProduitListComponent
-  },
-  {
-    path:'admin/produit/update/:id',
-    component:UpdateProduitComponent
-  },
-  {
-    path:'admin/produit/add',
-    component:CreateProduitComponent
-  },
-  {
-    path:'admin/client',
-    component:ClientListComponent
-  },
-  {
-    path:'admin/client/update/:id',
-    component:UpdateClientComponent
-  },
-  {
-    path:'admin/client/add',
-    component:CreateClientComponent
-  },
-  {
-    path:'client/produit',
-    component:ProduitsComponent
-  },
-  {
-    path:'client/produit/:id',
-    component:ProduitDetailsComponent
+    path: 'client',
+    children: [
+      {
+        path: 'produit',
+        children: [
+          {
+            path: '',
+            component:  ProduitsComponent,
+          },
+          {
+            path: ':id',
+            component: ProduitDetailsComponent
+          }
+        ]
+      }
+    ]
   }
 ];
 

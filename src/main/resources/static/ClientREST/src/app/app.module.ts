@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationAdminComponent } from './admin/navigation/navigationAdmin.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule} from "@angular/forms";
@@ -19,11 +18,12 @@ import { CreateClientComponent } from './admin/client/create-client/create-clien
 import { ProduitsComponent } from './client/produits/produits.component';
 import {NavigationClientComponent} from "./client/navigation-client/navigation-client.component";
 import { ProduitDetailsComponent } from './client/produits/produit-details/produit-details.component';
+import {NavigationAdminComponent} from "./admin/navigation/navigation-admin.component";
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationAdminComponent,
     CategorieListComponent,
     CreateCategorieComponent,
     UpdateCategorieComponent,
@@ -36,7 +36,8 @@ import { ProduitDetailsComponent } from './client/produits/produit-details/produ
     ProduitsComponent,
     NavigationAdminComponent,
     NavigationClientComponent,
-    ProduitDetailsComponent
+    ProduitDetailsComponent,
+    HomeAdminComponent
   ],
     imports: [
         BrowserModule,
