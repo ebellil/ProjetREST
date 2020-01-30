@@ -42,7 +42,7 @@ export class UpdateCategorieComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/categorie']);
+    this.router.navigate(['/admin/categorie']);
   }
 
 }

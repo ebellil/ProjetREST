@@ -42,6 +42,6 @@ export class UpdateClientComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/client']);
+    this.router.navigate(['/admin/client']);
   }
 }

@@ -14,6 +14,9 @@ import {CreateClientComponent} from "./admin/client/create-client/create-client.
 import {ProduitsComponent} from "./client/produits/produits.component";
 import {ProduitDetailsComponent} from "./client/produits/produit-details/produit-details.component";
 import {HomeAdminComponent} from "./admin/home-admin/home-admin.component";
+import {ConnexionComponent} from "./connexion/connexion.component";
+import {CreateCompteComponent} from "./client/compte/create-compte/create-compte.component";
+import {CompteComponent} from "./client/compte/compte-details/compte.component";
 
 
 const routes: Routes = [
@@ -90,6 +93,23 @@ const routes: Routes = [
           {
             path: ':id',
             component: ProduitDetailsComponent
+          }
+        ]
+      },
+      {
+        path: 'connexion',
+        component: ConnexionComponent
+      },
+      {
+        path: 'compte',
+        children: [
+          {
+            path: "creer",
+            component: CreateCompteComponent
+          },
+          {
+            path: "monCompte",
+            component: CompteComponent
           }
         ]
       }

@@ -20,6 +20,9 @@ import {NavigationClientComponent} from "./client/navigation-client/navigation-c
 import { ProduitDetailsComponent } from './client/produits/produit-details/produit-details.component';
 import {NavigationAdminComponent} from "./admin/navigation/navigation-admin.component";
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import {ConnexionComponent} from "./connexion/connexion.component";
+import { CompteComponent } from './client/compte/compte-details/compte.component';
+import { CreateCompteComponent } from './client/compte/create-compte/create-compte.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
     NavigationAdminComponent,
     NavigationClientComponent,
     ProduitDetailsComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    ConnexionComponent,
+    CompteComponent,
+    CreateCompteComponent
   ],
     imports: [
         BrowserModule,

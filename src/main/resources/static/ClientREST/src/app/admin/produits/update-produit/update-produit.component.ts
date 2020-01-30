@@ -40,6 +40,6 @@ export class UpdateProduitComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/produit']);
+    this.router.navigate(['/admin/produit']);
   }
 }
